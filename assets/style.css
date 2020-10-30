@@ -18,3 +18,8 @@ background-color: #ececec;
 
     text-align: center;
 }
+
+.weather-main {
+    background-color: burlywood;
+    height: 500px;
+}
