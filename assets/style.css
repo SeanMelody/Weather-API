@@ -14,14 +14,16 @@ background-color: #ececec;
 }
 
 .weather-card {
-    margin: 20px;
+    /* margin: 100px; */
 
     text-align: center;
 }
 
 .weather-main {
     background-color: burlywood;
-    height: 500px;
+    border: 10px, solid, black;
+    margin: 20px;
+    height: 600px;
 }
 
 #main-city-name {
@@ -33,14 +35,21 @@ font-size: 30px;
 }
 
 .five-day {
-    background-color: brown;
+    /* background-color: brown; */
     text-align: center;
+    font-size: 16px;
+    display: block;
+    margin: 10px;
 }
 
-.days{
-margin: 10px
-
+.five-day li {
+    list-style-type: none;
 }
+
+/* .days{
+margin: 10px;
+
+} */
 
 /* .days::after:last-child {
     margin: 0;
@@ -48,7 +57,9 @@ margin: 10px
 
 .day {
     background-color: blue;
-    text-align: center;
-    margin: 20px;
+    /* text-align: center; */
+    margin: 15px;
     color: white;
+    height: 150px;
+    width: 75px;
 }
