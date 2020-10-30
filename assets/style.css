@@ -6,3 +6,15 @@ h1 {
     font-size: 40px;
     font-weight: bold;
 }
+
+aside {
+background-color: #ececec;
+/* margin-top: 20px; */
+
+}
+
+.weather-card {
+    margin: 20px;
+
+    text-align: center;
+}

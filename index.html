@@ -19,14 +19,35 @@
 
 <body>
     <header>
-        <div class="container">
-            <nav class="navbar fixed-top navbar-light bg-light">
+        <div>
+            <nav class="navbar navbar-light bg-light">
                 <h1 class=" mx-auto"> Weather API </h1>
             </nav>
         </div>
     </header>
     <!-- <h1>Weather API</h1> -->
 
+    <aside class="row col-md-3">
+        <div class="card weather-card" style="width: 25rem;">
+            <div class="card-header">
+                <form class="form-inline">
+                    <h4>Search for a city:</h4>
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info my-2 my-sm-0"> <i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Austin, TX</li>
+                <li class="list-group-item">Chicago, IL</li>
+                <li class="list-group-item">New York, NY</li>
+                <li class="list-group-item">Orlando, FL</li>
+                <li class="list-group-item">San Francisco, CA</li>
+                <li class="list-group-item">Seattle, WA</li>
+                <li class="list-group-item">Denver, CO</li>
+                <li class="list-group-item">Atlanta, GA</li>
+            </ul>
+        </div>
+    </aside>
 
 
 
