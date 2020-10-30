@@ -23,3 +23,32 @@ background-color: #ececec;
     background-color: burlywood;
     height: 500px;
 }
+
+#main-city-name {
+    font-size: 40px;
+}
+
+#main-current-conditions {
+font-size: 30px;
+}
+
+.five-day {
+    background-color: brown;
+    text-align: center;
+}
+
+.days{
+margin: 10px
+
+}
+
+/* .days::after:last-child {
+    margin: 0;
+} */
+
+.day {
+    background-color: blue;
+    text-align: center;
+    margin: 20px;
+    color: white;
+}
