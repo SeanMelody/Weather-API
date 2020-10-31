@@ -4,7 +4,7 @@ var weatherCity = document.querySelector(".weather-city");
 // var fetchButton = document.querySelector(".get-weather");
 
 // function getWeather() {
-var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?zip=94965&units=imperial&appid=fd7013d34fa65ca951cba9b9f0dde107';
+// var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?zip=94965&units=imperial&appid=fd7013d34fa65ca951cba9b9f0dde107';
 
 fetch(requestUrl, {
 
@@ -61,11 +61,11 @@ fetch(requestUrl, {
         var dayOneTemp = document.querySelector("#day-one-temp");
         var dayOneHumidity = document.querySelector("#day-one-humidity");
 
-        dayOneDate.textContent = data.list[0].dt_txt
-        dayOneDescription.textContent = data.list[0].weather[0].description
-        dayOneIcon.textContent = data.list[0].weather[0].icon
-        dayOneTemp.textContent = data.list[0].main.temp
-        dayOneHumidity.textContent = data.list[0].main.humidity
+        dayOneDate.textContent = data.list[4].dt_txt
+        dayOneDescription.textContent = data.list[4].weather[0].description
+        dayOneIcon.textContent = data.list[4].weather[0].icon
+        dayOneTemp.textContent = data.list[4].main.temp
+        dayOneHumidity.textContent = data.list[4].main.humidity
 
         // dayTwoTemp.textContent = data.list[2].main.temp
         // dayThreeTemp.textContent = data.list[3].main.temp
@@ -78,11 +78,11 @@ fetch(requestUrl, {
         var dayTwoTemp = document.querySelector("#day-two-temp");
         var dayTwoHumidity = document.querySelector("#day-two-humidity");
 
-        dayTwoDate.textContent = data.list[1].dt_txt
+        dayTwoDate.textContent = data.list[12].dt_txt
         // dayTwoDescription.textContent = data.list[1].weather[0].description
-        dayTwoIcon.textContent = data.list[1].weather[0].icon
-        dayTwoTemp.textContent = data.list[1].main.temp
-        dayTwoHumidity.textContent = data.list[1].main.humidity
+        dayTwoIcon.textContent = data.list[12].weather[0].icon
+        dayTwoTemp.textContent = data.list[12].main.temp
+        dayTwoHumidity.textContent = data.list[12].main.humidity
 
 
         // DAY 3 of 5
@@ -91,11 +91,11 @@ fetch(requestUrl, {
         var dayThreeTemp = document.querySelector("#day-three-temp");
         var dayThreeHumidity = document.querySelector("#day-three-humidity");
 
-        dayThreeDate.textContent = data.list[2].dt_txt
+        dayThreeDate.textContent = data.list[20].dt_txt
         // dayThreeDescription.textContent = data.list[2].weather[0].description
-        dayThreeIcon.textContent = data.list[2].weather[0].icon
-        dayThreeTemp.textContent = data.list[2].main.temp
-        dayThreeHumidity.textContent = data.list[2].main.humidity
+        dayThreeIcon.textContent = data.list[20].weather[0].icon
+        dayThreeTemp.textContent = data.list[20].main.temp
+        dayThreeHumidity.textContent = data.list[20].main.humidity
 
         // DAY 4 of 5
         var dayFourDate = document.querySelector("#day-four-date");
@@ -103,11 +103,11 @@ fetch(requestUrl, {
         var dayFourTemp = document.querySelector("#day-four-temp");
         var dayFourHumidity = document.querySelector("#day-four-humidity");
 
-        dayFourDate.textContent = data.list[3].dt_txt
+        dayFourDate.textContent = data.list[28].dt_txt
         // dayFourDescription.textContent = data.list[3].weather[0].description
-        dayFourIcon.textContent = data.list[3].weather[0].icon
-        dayFourTemp.textContent = data.list[3].main.temp
-        dayFourHumidity.textContent = data.list[3].main.humidity
+        dayFourIcon.textContent = data.list[28].weather[0].icon
+        dayFourTemp.textContent = data.list[28].main.temp
+        dayFourHumidity.textContent = data.list[28].main.humidity
 
         // DAY 5 of 5
         var dayFiveDate = document.querySelector("#day-five-date");
@@ -115,11 +115,11 @@ fetch(requestUrl, {
         var dayFiveTemp = document.querySelector("#day-five-temp");
         var dayFiveHumidity = document.querySelector("#day-five-humidity");
 
-        dayFiveDate.textContent = data.list[4].dt_txt
+        dayFiveDate.textContent = data.list[36].dt_txt
         // dayFiveDescription.textContent = data.list[4].weather[0].description
-        dayFiveIcon.textContent = data.list[4].weather[0].icon
-        dayFiveTemp.textContent = data.list[4].main.temp
-        dayFiveHumidity.textContent = data.list[4].main.humidity
+        dayFiveIcon.textContent = data.list[36].weather[0].icon
+        dayFiveTemp.textContent = data.list[36].main.temp
+        dayFiveHumidity.textContent = data.list[36].main.humidity
 
     })
 // })
@@ -195,11 +195,11 @@ function austinTX() {
             var dayOneTemp = document.querySelector("#day-one-temp");
             var dayOneHumidity = document.querySelector("#day-one-humidity");
 
-            dayOneDate.textContent = data.list[0].dt_txt
-            dayOneDescription.textContent = data.list[0].weather[0].description
-            dayOneIcon.textContent = data.list[0].weather[0].icon
-            dayOneTemp.textContent = data.list[0].main.temp
-            dayOneHumidity.textContent = data.list[0].main.humidity
+            dayOneDate.textContent = data.list[4].dt_txt
+            dayOneDescription.textContent = data.list[4].weather[0].description
+            dayOneIcon.textContent = data.list[4].weather[0].icon
+            dayOneTemp.textContent = data.list[4].main.temp
+            dayOneHumidity.textContent = data.list[4].main.humidity
 
             // dayTwoTemp.textContent = data.list[2].main.temp
             // dayThreeTemp.textContent = data.list[3].main.temp
@@ -212,11 +212,11 @@ function austinTX() {
             var dayTwoTemp = document.querySelector("#day-two-temp");
             var dayTwoHumidity = document.querySelector("#day-two-humidity");
 
-            dayTwoDate.textContent = data.list[1].dt_txt
+            dayTwoDate.textContent = data.list[12].dt_txt
             // dayTwoDescription.textContent = data.list[1].weather[0].description
-            dayTwoIcon.textContent = data.list[1].weather[0].icon
-            dayTwoTemp.textContent = data.list[1].main.temp
-            dayTwoHumidity.textContent = data.list[1].main.humidity
+            dayTwoIcon.textContent = data.list[12].weather[0].icon
+            dayTwoTemp.textContent = data.list[12].main.temp
+            dayTwoHumidity.textContent = data.list[12].main.humidity
 
 
             // DAY 3 of 5
@@ -225,11 +225,11 @@ function austinTX() {
             var dayThreeTemp = document.querySelector("#day-three-temp");
             var dayThreeHumidity = document.querySelector("#day-three-humidity");
 
-            dayThreeDate.textContent = data.list[2].dt_txt
+            dayThreeDate.textContent = data.list[20].dt_txt
             // dayThreeDescription.textContent = data.list[2].weather[0].description
-            dayThreeIcon.textContent = data.list[2].weather[0].icon
-            dayThreeTemp.textContent = data.list[2].main.temp
-            dayThreeHumidity.textContent = data.list[2].main.humidity
+            dayThreeIcon.textContent = data.list[20].weather[0].icon
+            dayThreeTemp.textContent = data.list[20].main.temp
+            dayThreeHumidity.textContent = data.list[20].main.humidity
 
             // DAY 4 of 5
             var dayFourDate = document.querySelector("#day-four-date");
@@ -237,11 +237,11 @@ function austinTX() {
             var dayFourTemp = document.querySelector("#day-four-temp");
             var dayFourHumidity = document.querySelector("#day-four-humidity");
 
-            dayFourDate.textContent = data.list[3].dt_txt
+            dayFourDate.textContent = data.list[28].dt_txt
             // dayFourDescription.textContent = data.list[3].weather[0].description
-            dayFourIcon.textContent = data.list[3].weather[0].icon
-            dayFourTemp.textContent = data.list[3].main.temp
-            dayFourHumidity.textContent = data.list[3].main.humidity
+            dayFourIcon.textContent = data.list[28].weather[0].icon
+            dayFourTemp.textContent = data.list[28].main.temp
+            dayFourHumidity.textContent = data.list[28].main.humidity
 
             // DAY 5 of 5
             var dayFiveDate = document.querySelector("#day-five-date");
@@ -249,11 +249,11 @@ function austinTX() {
             var dayFiveTemp = document.querySelector("#day-five-temp");
             var dayFiveHumidity = document.querySelector("#day-five-humidity");
 
-            dayFiveDate.textContent = data.list[4].dt_txt
+            dayFiveDate.textContent = data.list[36].dt_txt
             // dayFiveDescription.textContent = data.list[4].weather[0].description
-            dayFiveIcon.textContent = data.list[4].weather[0].icon
-            dayFiveTemp.textContent = data.list[4].main.temp
-            dayFiveHumidity.textContent = data.list[4].main.humidity
+            dayFiveIcon.textContent = data.list[36].weather[0].icon
+            dayFiveTemp.textContent = data.list[36].main.temp
+            dayFiveHumidity.textContent = data.list[36].main.humidity
 
         })
 
