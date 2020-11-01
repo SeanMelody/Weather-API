@@ -3,7 +3,7 @@ body {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -35,7 +35,7 @@ background-color: #ececec;
 }
 
 #main-city-name {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #main-current-conditions {
@@ -68,6 +68,6 @@ margin: 10px;
     /* text-align: center; */
     margin: 5px;
     color: white;
-    height: 150px;
-    width: 75px;
+    /* height: 150px;
+    width: 75px; */
 }
