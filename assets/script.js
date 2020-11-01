@@ -19,7 +19,7 @@ fetch(requestUrl, {
     })
     .then(function (data) {
         console.log(data);
-        // for (var i = 0; i < data.length; i++) {
+        // for (var i = 0; i <img data.length; i++) {
         var mainCityName = document.querySelector("#main-city-name");
         var mainCurrentConditions = document.querySelector("#main-current-conditions");
         var mainTemp = document.querySelector("#main-temp");
@@ -27,7 +27,7 @@ fetch(requestUrl, {
         var mainWindSpeed = document.querySelector("#main-wind-speed");
         var mainUvIndex = document.querySelector("#main-uv-index");
         var mainAirQuality = document.querySelector("#main-air-quality");
-        var mainCurrentDAy = document.querySelector("#main-current-day")
+        var mainCurrentDAy = document.querySelector("#main-current-day");
         mainCityName.textContent = data.name + " " + (moment().format('MM[/]D[/]yyyy'))
         mainCurrentConditions.textContent = data.weather[0].description
         mainCurrentDAy.textContent = (moment().format('MM[/]D[/]yyyy'))
@@ -35,10 +35,20 @@ fetch(requestUrl, {
 
         // });
 
-        mainTemp.textContent = `The current temperature is: ${data.main.temp} degrees farenheight`
-        mainHumidity.textContent = `The current humidity is: ${data.main.humidity}`
-        mainWindSpeed.textContent = `current wind speed: ${data.wind.speed} mph`
-        mainUvIndex.textContent = `icon: ${data.main.clouds}`
+        mainTemp.textContent = `Temperature: ${data.main.temp} degrees farenheight`
+        mainHumidity.textContent = `Humidity: ${data.main.humidity}`
+        mainWindSpeed.textContent = `Wind Speed: ${data.wind.speed} MPH`
+        mainUvIndex.textContent = `icon: ${data.weather[0].icon}`
+        mainIcon = document.querySelector("#main-icon")
+        var icon = data.weather[0].icon
+        mainIcon.textContent = `http://openweathermap.org/img/w/${icon}.png`;
+        // alert(mainIcon)
+        var mainIconTest = document.querySelector("#main-icon-test");
+        mainIconTest.style.height = "50px";
+        mainIconTest.style.width = "50px";
+        mainIconTest.style.backgroundImage = "url(http://openweathermap.org/img/w/01n.png)";
+        // mainIconTest.src = url"(http://openweathermap.org/img/w/01n.png)"
+
         // mainAirQuality.textContent = `sunrise is at: ${data.sys.sunrise * 1000}`
         console.log(mainCityName)
         console.log(mainCurrentConditions)
@@ -602,8 +612,6 @@ function zipSearch() {
 
     // function getWeather() {
     var zip = document.querySelector(".zip").value
-
-    alert(zip)
 
     var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
 
