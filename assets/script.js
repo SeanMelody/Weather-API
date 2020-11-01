@@ -46,7 +46,7 @@ fetch(requestUrl, {
         var mainIconTest = document.querySelector("#main-icon-test");
         mainIconTest.style.height = "50px";
         mainIconTest.style.width = "50px";
-        mainIconTest.style.backgroundImage = "url(http://openweathermap.org/img/w/01n.png)";
+        mainIconTest.style.backgroundImage = "url('http://openweathermap.org/img/w/01n.png')";
         // mainIconTest.src = url"(http://openweathermap.org/img/w/01n.png)"
 
         // mainAirQuality.textContent = `sunrise is at: ${data.sys.sunrise * 1000}`
@@ -612,43 +612,48 @@ function zipSearch() {
 
     // function getWeather() {
     var zip = document.querySelector(".zip").value
+    if (zip.length === 5) {
 
-    var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
+        var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
 
-    fetch(requestUrl, {
+        fetch(requestUrl, {
 
-        method: "GET",
-        credentials: "same-origin",
-        redirect: "follow",
-        cache: "reload",
-    })
-        .then(function (response) {
-            return response.json();
+            method: "GET",
+            credentials: "same-origin",
+            redirect: "follow",
+            cache: "reload",
         })
-        .then(function (data) {
-            console.log(data);
-            // for (var i = 0; i < data.length; i++) {
-            var mainCityName = document.querySelector("#main-city-name");
-            var mainCurrentConditions = document.querySelector("#main-current-conditions");
-            var mainTemp = document.querySelector("#main-temp");
-            var mainHumidity = document.querySelector("#main-humidity");
-            var mainWindSpeed = document.querySelector("#main-wind-speed");
-            var mainUvIndex = document.querySelector("#main-uv-index");
-            var mainAirQuality = document.querySelector("#main-air-quality");
-            var mainCurrentDAy = document.querySelector("#main-current-day")
-            mainCityName.textContent = data.city.name
-            mainCurrentConditions.textContent = data.list[0].weather[0].description
-            mainCurrentDAy.textContent = data.list[0].dt_txt
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+                // for (var i = 0; i < data.length; i++) {
+                var mainCityName = document.querySelector("#main-city-name");
+                var mainCurrentConditions = document.querySelector("#main-current-conditions");
+                var mainTemp = document.querySelector("#main-temp");
+                var mainHumidity = document.querySelector("#main-humidity");
+                var mainWindSpeed = document.querySelector("#main-wind-speed");
+                var mainUvIndex = document.querySelector("#main-uv-index");
+                var mainAirQuality = document.querySelector("#main-air-quality");
+                var mainCurrentDAy = document.querySelector("#main-current-day")
+                mainCityName.textContent = data.city.name
+                mainCurrentConditions.textContent = data.list[0].weather[0].description
+                mainCurrentDAy.textContent = data.list[0].dt_txt
 
-            mainTemp.textContent = `The current temperature is: ${data.list[0].main.temp} degrees farenheight`
-            mainHumidity.textContent = `The current humidity is: ${data.list[0].main.humidity}`
-            mainWindSpeed.textContent = `current wind speed: ${data.list[0].wind.speed} mph`
-            mainUvIndex.textContent = `icon: ${data.list[0].clouds}`
-            mainAirQuality.textContent = `sunrise is at: ${data.city.sunrise}`
-            console.log(mainCityName)
-            console.log(mainCurrentConditions)
+                mainTemp.textContent = `The current temperature is: ${data.list[0].main.temp} degrees farenheight`
+                mainHumidity.textContent = `The current humidity is: ${data.list[0].main.humidity}`
+                mainWindSpeed.textContent = `current wind speed: ${data.list[0].wind.speed} mph`
+                mainUvIndex.textContent = `icon: ${data.list[0].clouds}`
+                mainAirQuality.textContent = `sunrise is at: ${data.city.sunrise}`
+                console.log(mainCityName)
+                console.log(mainCurrentConditions)
 
-        })
-
+            })
+    } else {
+        alert("must enter a valid zip code")
+        placeZip = document.querySelector("#place-zip");
+        placeZip.textContent = "Nope"
+    }
     return (zipSearch)
 }
