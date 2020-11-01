@@ -599,14 +599,13 @@ function atlantaGA() {
 function zipSearch() {
 
 
-    var weatherCity = document.querySelector(".weather-city");
-    // var fetchButton = document.querySelector(".get-weather");
 
     // function getWeather() {
-    // var zip = document.querySelector(".zip")
-    // var enteredZip = zip
-    // alert(enteredZip)
-    var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?zip=11211&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
+    var zip = document.querySelector(".zip").value
+
+    alert(zip)
+
+    var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
 
     fetch(requestUrl, {
 
