@@ -20,34 +20,119 @@
 <body>
     <header>
         <div>
-            <nav class="navbar navbar-light bg-light">
-                <h1 class=" mx-auto"> Weather API </h1>
+            <nav class="navbar bg-dark">
+                <h1 class="mx-auto"> Weather API </h1>
             </nav>
         </div>
     </header>
     <!-- <h1>Weather API</h1> -->
+    <div class="row">
+        <aside class="col-md-3">
 
-    <aside class="row col-md-3">
-        <div class="card weather-card" style="width: 25rem;">
-            <div class="card-header">
-                <form class="form-inline">
-                    <h4>Search for a city:</h4>
-                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0"> <i class="fas fa-search"></i></button>
-                </form>
+            <div class="form-inline">
+                <h4>Search for a city:</h4>
+                <input class="form-control mr-sm-2 form-inline zip" placeholder="Enter a Zip Code" id="place-zip"
+                    aria-label="Search"></input>
+                <button class="btn btn-outline-info my-2 my-sm-0" onclick="zipSearch()"> <i
+                        class="fas fa-search"></i></button>
             </div>
+
+            <!-- </div> -->
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Austin, TX</li>
-                <li class="list-group-item">Chicago, IL</li>
-                <li class="list-group-item">New York, NY</li>
-                <li class="list-group-item">Orlando, FL</li>
-                <li class="list-group-item">San Francisco, CA</li>
-                <li class="list-group-item">Seattle, WA</li>
-                <li class="list-group-item">Denver, CO</li>
-                <li class="list-group-item">Atlanta, GA</li>
+                <button class="list-group-item" onclick="austinTX()">Austin, TX</button>
+                <button class="list-group-item" onclick="chicagoIL()">Chicago, IL</button>
+                <button class="list-group-item" onclick="newYorkNY()">New York, NY</button>
+                <button class="list-group-item" onclick="orlandoFL()">Orlando, FL</button>
+                <button class="list-group-item" onclick="sanFranciscoCA()">San Francisco, CA</button>
+                <button class="list-group-item" onclick="seattleWA()">Seattle, WA</button>
+                <button class="list-group-item" onclick="denverCO()">Denver, CO</button>
+                <button class="list-group-item" onclick="atlantaGA()">Atlanta, GA</button>
+                <br>
             </ul>
+            <!-- </div> -->
+        </aside>
+
+
+        <!-- <content> -->
+        <div class="col-md-9 weather-main">
+            <div>
+                <div class="weather-city border border-dark rounded">
+                    <!-- <p>Main weather here</p>
+                    <button class="get-weather"> Search</button> -->
+                    <div id="main-city-name"></div>
+                    <img id="main-image"></img>
+                    <div id="main-current-conditions"></div>
+                    <div id="main-temp"></div>
+                    <div id="main-humidity"></div>
+                    <div id="main-wind-speed"></div>
+                    <div id="main-uv-index"></div>
+                    <div id="main-icon"></div>
+                    <div id="main-icon-test"></div>
+                    <div id="main-air-quality"></div>
+                    <img id="main-image"></img>
+                    <!-- <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Austin, TX</li>
+                    <li class="list-group-item">Chicago, IL</li>
+                    <li class="list-group-item">New York, NY</li>
+                    <li class="list-group-item">Orlando, FL</li>
+                    <li class="list-group-item">San Francisco, CA</li>
+                    <li class="list-group-item">Seattle, WA</li>
+                    <li class="list-group-item">Denver, CO</li>
+                    <li class="list-group-item">Atlanta, GA</li>
+                </ul> -->
+                </div>
+                <!-- </div> -->
+
+                <div class="row col-md-10 five-day">
+                    <h4>Five Day Forecast:</h4>
+                    <div class="row col-md-10 mx-auto">
+
+                        <ul class="col-md-2 day day-one rounded">
+                            <li id="day-one-date">Date</li>
+                            <li id="day-one-icon">Icon</li>
+                            <li id="day-one-temp">Temperature</li>
+                            <li id="day-one-humidity">Humidity</li>
+                        </ul>
+
+                        <ul class="col-md-2 day day-two rounded">
+                            <li id="day-two-date">Date</li>
+                            <li id="day-two-icon">Icon</li>
+                            <li id="day-two-temp">Temperature</li>
+                            <li id="day-two-humidity">Humidity</li>
+                        </ul>
+
+
+                        <ul class="col-md-2 day day-three rounded">
+                            <li id="day-three-date">Date</li>
+                            <li id="day-three-icon">Icon</li>
+                            <li id="day-three-temp">Temperature</li>
+                            <li id="day-three-humidity">Humidity</li>
+                        </ul>
+
+
+                        <ul class="col-md-2 day day-four rounded">
+                            <li id="day-four-date">Date</li>
+                            <li id="day-four-icon">Icon</li>
+                            <li id="day-four-temp">Temperature</li>
+                            <li id="day-four-humidity">Humidity</li>
+                        </ul>
+
+
+                        <ul class="col-md-2 day day-five rounded">
+                            <li id="day-five-date">Date</li>
+                            <li id="day-five-icon">Icon</li>
+                            <li id="day-five-temp">Temperature</li>
+                            <li id="day-five-humidity">Humidity</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </aside>
+
+    </div>
+    <!-- </content> -->
 
 
 
@@ -67,7 +152,7 @@
 
 
 
-
+    <script src="./assets/moment/moment.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 

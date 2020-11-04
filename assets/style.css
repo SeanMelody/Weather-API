@@ -3,13 +3,17 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    color: white;
 }
 
 aside {
 background-color: #ececec;
+padding-top: 15px;
 /* margin: 10px; */
+/* padding-right: 15px; */
+/* padding-right: 20px; */
 }
 
 .list-group-item {
@@ -23,15 +27,16 @@ background-color: #ececec;
 }
 
 .weather-main {
-    background-color: burlywood;
+    /* background-color: white */
     /* margin: 10px; */
     /* height: 550px; */
 }
 
 .weather-city {
-    height: 250px;
+    height: 400px;
     /* margin: 20px; */
     margin-top: 40px;
+    padding-left: 20px;
 }
 
 #main-city-name {
@@ -68,6 +73,7 @@ margin: 10px;
     /* text-align: center; */
     margin: 5px;
     color: white;
+    line-height: 200%;
     /* height: 150px;
     width: 75px; */
 }

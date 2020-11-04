@@ -20,6 +20,9 @@ fetch(requestUrl, {
     .then(function (data) {
         console.log(data);
         // for (var i = 0; i <img data.length; i++) {
+
+        var myImg = document.getElementById("main-image")
+        myImg.src = "./assets/icons/10d.png";
         var mainCityName = document.querySelector("#main-city-name");
         var mainCurrentConditions = document.querySelector("#main-current-conditions");
         var mainTemp = document.querySelector("#main-temp");
@@ -30,7 +33,9 @@ fetch(requestUrl, {
         var mainCurrentDAy = document.querySelector("#main-current-day");
         mainCityName.textContent = data.name + " " + (moment().format('MM[/]D[/]yyyy'))
         mainCurrentConditions.textContent = data.weather[0].description
-        mainCurrentDAy.textContent = (moment().format('MM[/]D[/]yyyy'))
+        // mainCurrentDAy.textContent = (moment().format('MM[/]D[/]yyyy'))
+        var myImg = document.getElementById("main-image")
+        myImg.src = "./assets/icons/10d.png";
 
 
         // });
@@ -49,6 +54,9 @@ fetch(requestUrl, {
         mainIconTest.style.backgroundImage = "url('http://openweathermap.org/img/w/01n.png')";
         // mainIconTest.src = url"(http://openweathermap.org/img/w/01n.png)"
 
+
+        var myImg = document.getElementById("main-image")
+        myImg.src = "./assets/icons/10d.png";
         // mainAirQuality.textContent = `sunrise is at: ${data.sys.sunrise * 1000}`
         console.log(mainCityName)
         console.log(mainCurrentConditions)
@@ -199,29 +207,42 @@ function austinTX() {
             //     issueContainer.append(issueTitle);
             //     issueContainer.append(issueBody);
             // }
+        })
+    // DAY 1 of 5
+    // var dayOneTemp = document.querySelector("#day-one-temp");
+    // var dayTwoTemp = document.querySelector("#day-two-temp");
+    // var dayThreeTemp = document.querySelector("#day-three-temp");
+    // var dayFourTemp = document.querySelector("#day-four-temp");
+    // var dayFiveTemp = document.querySelector("#day-five-temp");
+    var requestFiveDay = 'https://api.openweathermap.org/data/2.5/onecall?lat=37.8591&lon=122.4853&units=imperial&exclude=current,minutely,hourly,alerts&appid=fd7013d34fa65ca951cba9b9f0dde107';
+    fetch(requestFiveDay, {
+
+        method: "GET",
+        credentials: "same-origin",
+        redirect: "follow",
+        cache: "reload",
+    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+
 
             // DAY 1 of 5
-            // var dayOneTemp = document.querySelector("#day-one-temp");
-            // var dayTwoTemp = document.querySelector("#day-two-temp");
-            // var dayThreeTemp = document.querySelector("#day-three-temp");
-            // var dayFourTemp = document.querySelector("#day-four-temp");
-            // var dayFiveTemp = document.querySelector("#day-five-temp");
+
             var dayOneDate = document.querySelector("#day-one-date");
-            var dayOneDescription = document.querySelector("#day-one-description");
             var dayOneIcon = document.querySelector("#day-one-icon");
             var dayOneTemp = document.querySelector("#day-one-temp");
             var dayOneHumidity = document.querySelector("#day-one-humidity");
 
-            dayOneDate.textContent = data.list[4].dt_txt
-            dayOneDescription.textContent = data.list[4].weather[0].description
-            dayOneIcon.textContent = data.list[4].weather[0].icon
-            dayOneTemp.textContent = data.list[4].main.temp
-            dayOneHumidity.textContent = data.list[4].main.humidity
 
-            // dayTwoTemp.textContent = data.list[2].main.temp
-            // dayThreeTemp.textContent = data.list[3].main.temp
-            // dayFourTemp.textContent = data.list[4].main.temp
-            // dayFiveTemp.textContent = data.list[5].main.temp
+            dayOneDate.textContent = (moment().add(1, 'days').format('MM[/]D[/]yyyy'))
+
+            dayOneIcon.textContent = data.daily[0].weather[0].icon
+            dayOneTemp.textContent = data.daily[0].temp.day
+            dayOneHumidity.textContent = data.daily[0].humidity
+
 
             // DAY 2 of 5
             var dayTwoDate = document.querySelector("#day-two-date");
@@ -229,11 +250,10 @@ function austinTX() {
             var dayTwoTemp = document.querySelector("#day-two-temp");
             var dayTwoHumidity = document.querySelector("#day-two-humidity");
 
-            dayTwoDate.textContent = data.list[12].dt_txt
-            // dayTwoDescription.textContent = data.list[1].weather[0].description
-            dayTwoIcon.textContent = data.list[12].weather[0].icon
-            dayTwoTemp.textContent = data.list[12].main.temp
-            dayTwoHumidity.textContent = data.list[12].main.humidity
+            dayTwoDate.textContent = (moment().add(2, 'days').format('MM[/]D[/]yyyy'))
+            dayTwoIcon.textContent = data.daily[1].weather[0].icon
+            dayTwoTemp.textContent = data.daily[1].temp.day
+            dayTwoHumidity.textContent = data.daily[1].humidity
 
 
             // DAY 3 of 5
@@ -242,11 +262,11 @@ function austinTX() {
             var dayThreeTemp = document.querySelector("#day-three-temp");
             var dayThreeHumidity = document.querySelector("#day-three-humidity");
 
-            dayThreeDate.textContent = data.list[20].dt_txt
-            // dayThreeDescription.textContent = data.list[2].weather[0].description
-            dayThreeIcon.textContent = data.list[20].weather[0].icon
-            dayThreeTemp.textContent = data.list[20].main.temp
-            dayThreeHumidity.textContent = data.list[20].main.humidity
+
+            dayThreeDate.textContent = (moment().add(3, 'days').format('MM[/]D[/]yyyy'))
+            dayThreeIcon.textContent = data.daily[2].weather[0].icon
+            dayThreeTemp.textContent = data.daily[2].temp.day
+            dayThreeHumidity.textContent = data.daily[2].humidity
 
             // DAY 4 of 5
             var dayFourDate = document.querySelector("#day-four-date");
@@ -254,11 +274,11 @@ function austinTX() {
             var dayFourTemp = document.querySelector("#day-four-temp");
             var dayFourHumidity = document.querySelector("#day-four-humidity");
 
-            dayFourDate.textContent = data.list[28].dt_txt
-            // dayFourDescription.textContent = data.list[3].weather[0].description
-            dayFourIcon.textContent = data.list[28].weather[0].icon
-            dayFourTemp.textContent = data.list[28].main.temp
-            dayFourHumidity.textContent = data.list[28].main.humidity
+
+            dayFourDate.textContent = (moment().add(4, 'days').format('MM[/]D[/]yyyy'))
+            dayFourIcon.textContent = data.daily[3].weather[0].icon
+            dayFourTemp.textContent = data.daily[3].temp.day
+            dayFourHumidity.textContent = data.daily[3].humidity
 
             // DAY 5 of 5
             var dayFiveDate = document.querySelector("#day-five-date");
@@ -266,13 +286,16 @@ function austinTX() {
             var dayFiveTemp = document.querySelector("#day-five-temp");
             var dayFiveHumidity = document.querySelector("#day-five-humidity");
 
-            dayFiveDate.textContent = data.list[36].dt_txt
-            // dayFiveDescription.textContent = data.list[4].weather[0].description
-            dayFiveIcon.textContent = data.list[36].weather[0].icon
-            dayFiveTemp.textContent = data.list[36].main.temp
-            dayFiveHumidity.textContent = data.list[36].main.humidity
+
+            dayFiveDate.textContent = (moment().add(5, 'days').format('MM[/]D[/]yyyy'))
+            dayFiveIcon.textContent = data.daily[4].weather[0].icon
+            dayFiveTemp.textContent = data.daily[4].temp.day
+            dayFiveHumidity.textContent = data.daily[4].humidity
+
 
         })
+
+    // })
 
     return (austinTX)
 }
@@ -612,7 +635,7 @@ function zipSearch() {
 
     // function getWeather() {
     var zip = document.querySelector(".zip").value
-    if (zip.length === 5) {
+    if (zip.length === 5 && zip !== Nan) {
 
         var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
 
@@ -651,9 +674,9 @@ function zipSearch() {
 
             })
     } else {
-        alert("must enter a valid zip code")
+        // alert("must enter a valid zip code")
         placeZip = document.querySelector("#place-zip");
-        placeZip.textContent = "Nope"
+        placeZip.value = "Not a valid Zip Code"
     }
     return (zipSearch)
 }
