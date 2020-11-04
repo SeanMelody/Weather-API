@@ -26,6 +26,21 @@ padding-top: 15px;
     text-align: center;
 }
 
+.past-searches{
+    list-style: none;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.search-list {
+    background-color: white;
+    /* height: 50;
+    width; */
+
+}
+
 .weather-main {
     /* background-color: white */
     /* margin: 10px; */
@@ -49,7 +64,7 @@ font-size: 30px;
 
 .five-day {
     /* background-color: brown; */
-    text-align: center;
+    /* text-align: center; */
     font-size: 16px;
     display: block;
     margin: 10px;
@@ -57,6 +72,7 @@ font-size: 30px;
 
 .five-day li {
     list-style-type: none;
+    padding-bottom: 5px;
 }
 
 /* .days{

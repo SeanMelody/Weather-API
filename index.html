@@ -31,22 +31,20 @@
 
             <div class="form-inline">
                 <h4>Search for a city:</h4>
-                <input class="form-control mr-sm-2 form-inline zip" placeholder="Enter a Zip Code" id="place-zip"
+                <input class="form-control mr-sm-2 form-inline city" placeholder="Enter a city" id="place-city"
                     aria-label="Search"></input>
-                <button class="btn btn-outline-info my-2 my-sm-0" onclick="zipSearch()"> <i
+                <button class="btn btn-outline-info my-2 my-sm-0" onclick="citySearch()"> <i
                         class="fas fa-search"></i></button>
             </div>
 
             <!-- </div> -->
             <ul class="list-group list-group-flush">
-                <button class="list-group-item" onclick="austinTX()">Austin, TX</button>
-                <button class="list-group-item" onclick="chicagoIL()">Chicago, IL</button>
-                <button class="list-group-item" onclick="newYorkNY()">New York, NY</button>
-                <button class="list-group-item" onclick="orlandoFL()">Orlando, FL</button>
-                <button class="list-group-item" onclick="sanFranciscoCA()">San Francisco, CA</button>
-                <button class="list-group-item" onclick="seattleWA()">Seattle, WA</button>
-                <button class="list-group-item" onclick="denverCO()">Denver, CO</button>
-                <button class="list-group-item" onclick="atlantaGA()">Atlanta, GA</button>
+                <li class="mx-auto button btn-sm  past-searches"></li>
+                <!-- <li><button class="list-group-item" id="search1" onclick="search1()"></button></li> -->
+                <!-- <li><button class="list-group-item" id="search2" onclick="search2()"></button></li>
+                <li><button class="list-group-item" id="search3" onclick="search3()"></button></li>
+                <li><button class="list-group-item" id="search4" onclick="search4()"></button></li> -->
+
                 <br>
             </ul>
             <!-- </div> -->
@@ -57,10 +55,9 @@
         <div class="col-md-9 weather-main">
             <div>
                 <div class="weather-city border border-dark rounded">
-                    <!-- <p>Main weather here</p>
-                    <button class="get-weather"> Search</button> -->
                     <div id="main-city-name"></div>
-                    <img id="main-image"></img>
+                    <!-- Weather Icon JQuery -->
+                    <div id="icon"><img id="wicon" src=""></div>
                     <div id="main-current-conditions"></div>
                     <div id="main-temp"></div>
                     <div id="main-humidity"></div>
@@ -69,60 +66,55 @@
                     <div id="main-icon"></div>
                     <div id="main-icon-test"></div>
                     <div id="main-air-quality"></div>
-                    <img id="main-image"></img>
-                    <!-- <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Austin, TX</li>
-                    <li class="list-group-item">Chicago, IL</li>
-                    <li class="list-group-item">New York, NY</li>
-                    <li class="list-group-item">Orlando, FL</li>
-                    <li class="list-group-item">San Francisco, CA</li>
-                    <li class="list-group-item">Seattle, WA</li>
-                    <li class="list-group-item">Denver, CO</li>
-                    <li class="list-group-item">Atlanta, GA</li>
-                </ul> -->
-                </div>
-                <!-- </div> -->
+                    <!-- <img id="main-image"></img> -->
 
-                <div class="row col-md-10 five-day">
+                </div>
+
+
+                <div class="row col-md-12 five-day">
                     <h4>Five Day Forecast:</h4>
-                    <div class="row col-md-10 mx-auto">
+                    <div class="row col-md-12 mx-auto">
 
                         <ul class="col-md-2 day day-one rounded">
-                            <li id="day-one-date">Date</li>
-                            <li id="day-one-icon">Icon</li>
-                            <li id="day-one-temp">Temperature</li>
-                            <li id="day-one-humidity">Humidity</li>
+                            <li id="day-one-date"></li>
+                            <li id="day-one-icon"><img id="icon-one" src=""></li>
+                            <li id="day-one-temp"></li>
+                            <li id="day-one-humidity"></li>
                         </ul>
 
                         <ul class="col-md-2 day day-two rounded">
-                            <li id="day-two-date">Date</li>
-                            <li id="day-two-icon">Icon</li>
-                            <li id="day-two-temp">Temperature</li>
-                            <li id="day-two-humidity">Humidity</li>
+                            <li id="day-two-date"></li>
+                            <li id="day-two-icon"><img id="icon-two" src=""></li>
+                            </li>
+                            <li id="day-two-temp"></li>
+                            <li id="day-two-humidity"></li>
                         </ul>
 
 
                         <ul class="col-md-2 day day-three rounded">
-                            <li id="day-three-date">Date</li>
-                            <li id="day-three-icon">Icon</li>
-                            <li id="day-three-temp">Temperature</li>
-                            <li id="day-three-humidity">Humidity</li>
+                            <li id="day-three-date"></li>
+                            <li id="day-three-icon"><img id="icon-three" src=""></li>
+                            </li>
+                            <li id="day-three-temp"></li>
+                            <li id="day-three-humidity"></li>
                         </ul>
 
 
                         <ul class="col-md-2 day day-four rounded">
-                            <li id="day-four-date">Date</li>
-                            <li id="day-four-icon">Icon</li>
-                            <li id="day-four-temp">Temperature</li>
-                            <li id="day-four-humidity">Humidity</li>
+                            <li id="day-four-date"></li>
+                            <li id="day-four-icon"><img id="icon-four" src=""></li>
+                            </li>
+                            <li id="day-four-temp"></li>
+                            <li id="day-four-humidity"></li>
                         </ul>
 
 
                         <ul class="col-md-2 day day-five rounded">
-                            <li id="day-five-date">Date</li>
-                            <li id="day-five-icon">Icon</li>
-                            <li id="day-five-temp">Temperature</li>
-                            <li id="day-five-humidity">Humidity</li>
+                            <li id="day-five-date"></li>
+                            <li id="day-five-icon"><img id="icon-five" src=""></li>
+                            </li>
+                            <li id="day-five-temp"></li>
+                            <li id="day-five-humidity"></li>
                         </ul>
 
                     </div>
@@ -150,8 +142,10 @@
 
 
 
-
-
+    <!-- jQuery Script Tags -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Script for Moments -->
     <script src="./assets/moment/moment.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
