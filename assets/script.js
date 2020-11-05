@@ -4,18 +4,26 @@ console.log("Hi!")
 // var requestFiveDay = 'https://api.openweathermap.org/data/2.5/onecall?lat=37.8591&lon=122.4853&units=imperial&exclude=mimutely,hourly,alerts&appid=fd7013d34fa65ca951cba9b9f0dde107';
 
 
+var searchCity = document.querySelector("#search-city")
+searchCity.addEventListener("click", function () {
+    var city = document.querySelector(".city").value
+    citySearch(city)
 
-function citySearch() {
+    // console.log(city)
+})
+
+
+function citySearch(input) {
 
 
 
     // function getWeather() {
-    var city = document.querySelector(".city").value
+    // var city = document.querySelector(".city").value
     // if (zip.length === 5 && zip !== Nan) {
 
 
 
-    var requestUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
+    var requestUrl = `http://api.openweathermap.org/data/2.5/weather?q=${input}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
 
     fetch(requestUrl, {
 
@@ -211,7 +219,7 @@ function citySearch() {
                         search1.classList.add("btn-light")
                         search1.classList.add("button")
 
-                        search1.innerHTML = city;
+                        search1.innerHTML = input;
                         document.querySelector(".past-searches").appendChild(search1);
 
                         search1.onclick = function () {
@@ -219,11 +227,12 @@ function citySearch() {
                             // alert(search1.textContent)
                             var newCity = search1.textContent
                             alert(newCity)
+                            citySearch(newCity)
                             // return (citySearch)
                         };
 
 
-                        console.log(city)
+
 
 
                     })
@@ -237,7 +246,7 @@ function citySearch() {
                 var search1 = document.createElement("li");
                 search1.classList.add("past")
                 search1.classList.add("btn-light")
-                search1.innerHTML = `"${city}" is not a valid city`;
+                search1.innerHTML = `"${input}" is not a valid city`;
                 document.querySelector(".past-searches").appendChild(search1);
 
 
@@ -279,6 +288,8 @@ function citySearch() {
 
     return (citySearch)
 }
+
+// console.log(search1)
 
 // console.log(search1)
 
