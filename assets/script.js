@@ -2,6 +2,9 @@ console.log("Hi!")
 
 // var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=sausalito&units=imperial&appid=fd7013d34fa65ca951cba9b9f0dde107';
 // var requestFiveDay = 'https://api.openweathermap.org/data/2.5/onecall?lat=37.8591&lon=122.4853&units=imperial&exclude=mimutely,hourly,alerts&appid=fd7013d34fa65ca951cba9b9f0dde107';
+
+
+
 function citySearch() {
 
 
@@ -9,6 +12,8 @@ function citySearch() {
     // function getWeather() {
     var city = document.querySelector(".city").value
     // if (zip.length === 5 && zip !== Nan) {
+
+
 
     var requestUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
 
@@ -25,177 +30,215 @@ function citySearch() {
         .then(function (data) {
             console.log(data);
             // for (var i = 0; i < data.length; i++) {
-            var mainCityName = document.querySelector("#main-city-name");
-
-            // Jquery add the icon
-            var iconcode = data.weather[0].icon;
-            var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png"
-            $('#wicon').attr('src', iconurl);
-
-
-            var mainTemp = document.querySelector("#main-temp");
-            var mainHumidity = document.querySelector("#main-humidity");
-            var mainWindSpeed = document.querySelector("#main-wind-speed");
-            // var mainUvIndex = document.querySelector("#main-uv-index");
-
-            mainCityName.textContent = data.name + " " + (moment().format('MM[/]D[/]yyyy'))
-
-            var mainImage = document.querySelector("#main-image");
-
-            mainTemp.textContent = `Temperature: ${data.main.temp} \u00B0F`
-            mainHumidity.textContent = `Humidity: ${data.main.humidity}%`
-            mainWindSpeed.textContent = `Wind Speed: ${data.wind.speed} MPH`
+            if (data.cod !== "404") {
 
 
 
 
-            var requestFiveDay = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=imperial&exclude=minutely,hourly,alerts&appid=fd7013d34fa65ca951cba9b9f0dde107`;
+                var mainCityName = document.querySelector("#main-city-name");
 
-            fetch(requestFiveDay, {
+                // Jquery add the icon
+                var iconcode = data.weather[0].icon;
+                var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png"
+                $('#wicon').attr('src', iconurl);
 
-                method: "GET",
-                credentials: "same-origin",
-                redirect: "follow",
-                cache: "reload",
-            })
-                .then(function (response) {
-                    return response.json();
+
+                var mainTemp = document.querySelector("#main-temp");
+                var mainHumidity = document.querySelector("#main-humidity");
+                var mainWindSpeed = document.querySelector("#main-wind-speed");
+                // var mainUvIndex = document.querySelector("#main-uv-index");
+
+                mainCityName.textContent = data.name + " " + (moment().format('MM[/]D[/]yyyy'))
+
+                var mainImage = document.querySelector("#main-image");
+
+                mainTemp.textContent = `Temperature: ${data.main.temp} \u00B0F`
+                mainHumidity.textContent = `Humidity: ${data.main.humidity}%`
+                mainWindSpeed.textContent = `Wind Speed: ${data.wind.speed} MPH`
+
+
+
+
+                var requestFiveDay = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=imperial&exclude=minutely,hourly,alerts&appid=fd7013d34fa65ca951cba9b9f0dde107`;
+
+                fetch(requestFiveDay, {
+
+                    method: "GET",
+                    credentials: "same-origin",
+                    redirect: "follow",
+                    cache: "reload",
                 })
-                .then(function (dataFiveDay) {
-                    console.log(dataFiveDay);
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (dataFiveDay) {
+                        console.log(dataFiveDay);
 
 
 
-                    // var mainTest = document.createElement("div");
-                    var mainTest = document.querySelector("#main-uv-index")
-                    mainTest.style.width = "125px";
-                    mainTest.style.height = "25px";
-                    // mainTest.style.background = "blue";
-                    mainTest.style.color = "white";
-                    mainTest.style.border = "1px solid #000000"
-                    mainTest.textContent = `UV Index: ${dataFiveDay.current.uvi}`
-                    var uvColor = dataFiveDay.current.uvi
-                    if (uvColor >= 0 && uvColor < 3) {
-                        mainTest.style.background = "green"
-                    }
-                    if (uvColor >= 3 && uvColor < 5) {
-                        mainTest.style.background = "yellow"
-                        mainTest.style.color = "black"
-                    }
-                    if (uvColor >= 6 && uvColor < 7) {
-                        mainTest.style.background = "orange"
-                    }
-                    if (uvColor >= 8 && uvColor < 10) {
-                        mainTest.style.background = "red"
-                    }
-                    if (uvColor >= 10) {
-                        mainTest.style.background = "yellow"
-                    }
+                        // var mainTest = document.createElement("div");
+                        var mainTest = document.querySelector("#main-uv-index")
+                        mainTest.style.width = "125px";
+                        mainTest.style.height = "25px";
+                        // mainTest.style.background = "blue";
+                        mainTest.style.color = "white";
+                        mainTest.style.border = "1px solid #000000"
+                        mainTest.textContent = `UV Index: ${dataFiveDay.current.uvi}`
+                        var uvColor = dataFiveDay.current.uvi
+                        if (uvColor >= 0 && uvColor < 3) {
+                            mainTest.style.background = "green"
+                        }
+                        if (uvColor >= 3 && uvColor < 5) {
+                            mainTest.style.background = "yellow"
+                            mainTest.style.color = "black"
+                        }
+                        if (uvColor >= 6 && uvColor < 7) {
+                            mainTest.style.background = "orange"
+                        }
+                        if (uvColor >= 8 && uvColor < 10) {
+                            mainTest.style.background = "red"
+                        }
+                        if (uvColor >= 10) {
+                            mainTest.style.background = "yellow"
+                        }
 
 
-                    // document.querySelector(".weather-city").appendChild(mainTest);
+                        // document.querySelector(".weather-city").appendChild(mainTest);
 
-                    // DAY 1 of 5
+                        // DAY 1 of 5
 
-                    var dayOneDate = document.querySelector("#day-one-date");
-                    // var dayOneIcon = document.querySelector("#day-one-icon");
-                    // var dayOneIcon = dataFiveDay.daily[0].weather[0].icon
-                    // // daily[0].weather[0].icon
-                    // var dayOneIconUrl = "http://openweathermap.org/img/w/" + dayOneIcon + ".png"
-                    // $('#iconOne').attr('src', dayOneIconUrl);
+                        var dayOneDate = document.querySelector("#day-one-date");
+                        // var dayOneIcon = document.querySelector("#day-one-icon");
+                        // var dayOneIcon = dataFiveDay.daily[0].weather[0].icon
+                        // // daily[0].weather[0].icon
+                        // var dayOneIconUrl = "http://openweathermap.org/img/w/" + dayOneIcon + ".png"
+                        // $('#iconOne').attr('src', dayOneIconUrl);
 
-                    var iconDayOne = dataFiveDay.daily[1].weather[0].icon;
-                    var iconDayOneUrl = "http://openweathermap.org/img/w/" + iconDayOne + ".png"
-                    $('#icon-one').attr('src', iconDayOneUrl);
+                        var iconDayOne = dataFiveDay.daily[1].weather[0].icon;
+                        var iconDayOneUrl = "http://openweathermap.org/img/w/" + iconDayOne + ".png"
+                        $('#icon-one').attr('src', iconDayOneUrl);
 
-                    var dayOneTemp = document.querySelector("#day-one-temp");
-                    var dayOneHumidity = document.querySelector("#day-one-humidity");
-
-
-                    dayOneDate.textContent = (moment().add(1, 'days').format('MM[/]D[/]yyyy'))
-
-                    // dayOneIcon.textContent = dataFiveDay.daily[1].weather[0].id
-                    dayOneTemp.textContent = `Temp: ${dataFiveDay.daily[1].temp.day}  \u00B0F`
-                    dayOneHumidity.textContent = `Humidity: ${dataFiveDay.daily[1].humidity}%`
+                        var dayOneTemp = document.querySelector("#day-one-temp");
+                        var dayOneHumidity = document.querySelector("#day-one-humidity");
 
 
-                    // DAY 2 of 5
-                    var dayTwoDate = document.querySelector("#day-two-date");
-                    // var dayTwoIcon = document.querySelector("#day-two-icon");
+                        dayOneDate.textContent = (moment().add(1, 'days').format('MM[/]D[/]yyyy'))
 
-                    var dayTwoTemp = document.querySelector("#day-two-temp");
-                    var dayTwoHumidity = document.querySelector("#day-two-humidity");
-
-                    dayTwoDate.textContent = (moment().add(2, 'days').format('MM[/]D[/]yyyy'))
-
-                    var iconDayTwo = dataFiveDay.daily[2].weather[0].icon;
-                    var iconDayTwoUrl = "http://openweathermap.org/img/w/" + iconDayTwo + ".png"
-                    $('#icon-two').attr('src', iconDayTwoUrl);
+                        // dayOneIcon.textContent = dataFiveDay.daily[1].weather[0].id
+                        dayOneTemp.textContent = `Temp: ${dataFiveDay.daily[1].temp.day}  \u00B0F`
+                        dayOneHumidity.textContent = `Humidity: ${dataFiveDay.daily[1].humidity}%`
 
 
-                    // dayTwoIcon.textContent = dataFiveDay.daily[2].weather[0].icon
-                    dayTwoTemp.textContent = `Temp: ${dataFiveDay.daily[2].temp.day}  \u00B0F`
-                    dayTwoHumidity.textContent = `Humidity: ${dataFiveDay.daily[2].humidity}%`
+                        // DAY 2 of 5
+                        var dayTwoDate = document.querySelector("#day-two-date");
+                        // var dayTwoIcon = document.querySelector("#day-two-icon");
+
+                        var dayTwoTemp = document.querySelector("#day-two-temp");
+                        var dayTwoHumidity = document.querySelector("#day-two-humidity");
+
+                        dayTwoDate.textContent = (moment().add(2, 'days').format('MM[/]D[/]yyyy'))
+
+                        var iconDayTwo = dataFiveDay.daily[2].weather[0].icon;
+                        var iconDayTwoUrl = "http://openweathermap.org/img/w/" + iconDayTwo + ".png"
+                        $('#icon-two').attr('src', iconDayTwoUrl);
 
 
-                    // DAY 3 of 5
-                    var dayThreeDate = document.querySelector("#day-three-date");
-                    // var dayThreeIcon = document.querySelector("#day-three-icon");
-
-                    var dayThreeTemp = document.querySelector("#day-three-temp");
-                    var dayThreeHumidity = document.querySelector("#day-three-humidity");
+                        // dayTwoIcon.textContent = dataFiveDay.daily[2].weather[0].icon
+                        dayTwoTemp.textContent = `Temp: ${dataFiveDay.daily[2].temp.day}  \u00B0F`
+                        dayTwoHumidity.textContent = `Humidity: ${dataFiveDay.daily[2].humidity}%`
 
 
-                    dayThreeDate.textContent = (moment().add(3, 'days').format('MM[/]D[/]yyyy'))
+                        // DAY 3 of 5
+                        var dayThreeDate = document.querySelector("#day-three-date");
+                        // var dayThreeIcon = document.querySelector("#day-three-icon");
 
-                    var iconDayThree = dataFiveDay.daily[3].weather[0].icon;
-                    var iconDayThreeUrl = "http://openweathermap.org/img/w/" + iconDayThree + ".png"
-                    $('#icon-three').attr('src', iconDayThreeUrl);
-
-
-                    // dayThreeIcon.textContent = dataFiveDay.daily[3].weather[0].icon
-                    dayThreeTemp.textContent = `Temp: ${dataFiveDay.daily[3].temp.day}  \u00B0F`
-                    dayThreeHumidity.textContent = `Humidity: ${dataFiveDay.daily[3].humidity}%`
-
-                    // DAY 4 of 5
-                    var dayFourDate = document.querySelector("#day-four-date");
-                    // var dayFourIcon = document.querySelector("#day-four-icon");
+                        var dayThreeTemp = document.querySelector("#day-three-temp");
+                        var dayThreeHumidity = document.querySelector("#day-three-humidity");
 
 
-                    var dayFourTemp = document.querySelector("#day-four-temp");
-                    var dayFourHumidity = document.querySelector("#day-four-humidity");
+                        dayThreeDate.textContent = (moment().add(3, 'days').format('MM[/]D[/]yyyy'))
+
+                        var iconDayThree = dataFiveDay.daily[3].weather[0].icon;
+                        var iconDayThreeUrl = "http://openweathermap.org/img/w/" + iconDayThree + ".png"
+                        $('#icon-three').attr('src', iconDayThreeUrl);
 
 
-                    dayFourDate.textContent = (moment().add(4, 'days').format('MM[/]D[/]yyyy'))
+                        // dayThreeIcon.textContent = dataFiveDay.daily[3].weather[0].icon
+                        dayThreeTemp.textContent = `Temp: ${dataFiveDay.daily[3].temp.day}  \u00B0F`
+                        dayThreeHumidity.textContent = `Humidity: ${dataFiveDay.daily[3].humidity}%`
 
-                    var iconDayFour = dataFiveDay.daily[3].weather[0].icon;
-                    var iconDayFourUrl = "http://openweathermap.org/img/w/" + iconDayFour + ".png"
-                    $('#icon-four').attr('src', iconDayFourUrl);
-
-                    // dayFourIcon.textContent = dataFiveDay.daily[4].weather[0].icon
-                    dayFourTemp.textContent = `Temp: ${dataFiveDay.daily[4].temp.day}  \u00B0F`
-                    dayFourHumidity.textContent = `Humidity: ${dataFiveDay.daily[4].humidity}%`
-
-                    // DAY 5 of 5
-                    var dayFiveDate = document.querySelector("#day-five-date");
-                    // var dayFiveIcon = document.querySelector("#day-five-icon");
-
-                    var dayFiveTemp = document.querySelector("#day-five-temp");
-                    var dayFiveHumidity = document.querySelector("#day-five-humidity");
+                        // DAY 4 of 5
+                        var dayFourDate = document.querySelector("#day-four-date");
+                        // var dayFourIcon = document.querySelector("#day-four-icon");
 
 
-                    dayFiveDate.textContent = (moment().add(5, 'days').format('MM[/]D[/]yyyy'))
-
-                    var iconDayFive = dataFiveDay.daily[4].weather[0].icon;
-                    var iconDayFiveUrl = "http://openweathermap.org/img/w/" + iconDayFive + ".png"
-                    $('#icon-five').attr('src', iconDayFiveUrl);
-
-                    // dayFiveIcon.textContent = dataFiveDay.daily[5].weather[0].icon
-                    dayFiveTemp.textContent = `Temp: ${dataFiveDay.daily[5].temp.day}  \u00B0F`
-                    dayFiveHumidity.textContent = `Humidity: ${dataFiveDay.daily[5].humidity}%`
+                        var dayFourTemp = document.querySelector("#day-four-temp");
+                        var dayFourHumidity = document.querySelector("#day-four-humidity");
 
 
-                })
+                        dayFourDate.textContent = (moment().add(4, 'days').format('MM[/]D[/]yyyy'))
+
+                        var iconDayFour = dataFiveDay.daily[3].weather[0].icon;
+                        var iconDayFourUrl = "http://openweathermap.org/img/w/" + iconDayFour + ".png"
+                        $('#icon-four').attr('src', iconDayFourUrl);
+
+                        // dayFourIcon.textContent = dataFiveDay.daily[4].weather[0].icon
+                        dayFourTemp.textContent = `Temp: ${dataFiveDay.daily[4].temp.day}  \u00B0F`
+                        dayFourHumidity.textContent = `Humidity: ${dataFiveDay.daily[4].humidity}%`
+
+                        // DAY 5 of 5
+                        var dayFiveDate = document.querySelector("#day-five-date");
+                        // var dayFiveIcon = document.querySelector("#day-five-icon");
+
+                        var dayFiveTemp = document.querySelector("#day-five-temp");
+                        var dayFiveHumidity = document.querySelector("#day-five-humidity");
+
+
+                        dayFiveDate.textContent = (moment().add(5, 'days').format('MM[/]D[/]yyyy'))
+
+                        var iconDayFive = dataFiveDay.daily[4].weather[0].icon;
+                        var iconDayFiveUrl = "http://openweathermap.org/img/w/" + iconDayFive + ".png"
+                        $('#icon-five').attr('src', iconDayFiveUrl);
+
+                        // dayFiveIcon.textContent = dataFiveDay.daily[5].weather[0].icon
+                        dayFiveTemp.textContent = `Temp: ${dataFiveDay.daily[5].temp.day}  \u00B0F`
+                        dayFiveHumidity.textContent = `Humidity: ${dataFiveDay.daily[5].humidity}%`
+
+
+
+                        var search1 = document.createElement("button");
+                        search1.classList.add("past")
+                        search1.classList.add("btn-light")
+                        search1.classList.add("button")
+
+                        search1.innerHTML = city;
+                        document.querySelector(".past-searches").appendChild(search1);
+
+                        console.log(search1)
+
+
+                    })
+
+
+            } else {
+
+                // alert("must enter a valid zip code")
+                placeCity = document.querySelector("#place-city");
+                placeCity.value = "Search Again"
+                var search1 = document.createElement("li");
+                search1.classList.add("past")
+                search1.classList.add("btn-light")
+                // search1.nodeType.add("button")
+                // search1.style.width = "200px";
+                // search1.style.height = "50px";
+                // search1.style.background = "white";
+                // search1.style.color = "black";
+                // search1.style.border = "1px solid #333333";
+                search1.innerHTML = `"${city}" is not a valid city`;
+                document.querySelector(".past-searches").appendChild(search1);
+
+
+            }
 
         })
 
@@ -209,23 +252,22 @@ function citySearch() {
 
 
 
-    var search1 = document.createElement("li");
-    search1.classList.add("button")
-    search1.classList.add("btn-light")
-    // search1.nodeType.add("button")
-    // search1.style.width = "200px";
-    // search1.style.height = "50px";
-    // search1.style.background = "white";
-    // search1.style.color = "black";
-    // search1.style.border = "1px solid #333333";
-    search1.innerHTML = city;
-    document.querySelector(".past-searches").appendChild(search1);
+    // var search1 = document.createElement("button");
+    // search1.classList.add("past")
+    // search1.classList.add("btn-light")
+    // search1.classList.add("button")
 
+    // search1.innerHTML = city;
+    // document.querySelector(".past-searches").appendChild(search1);
 
+    // console.log(search1)
 
 
     return (citySearch)
 }
+
+// console.log(search1)
+
 
 // var search1 = document.createElement("li");
 // search1.style.width = "125px";

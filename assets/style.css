@@ -16,6 +16,10 @@ padding-top: 15px;
 /* padding-right: 20px; */
 }
 
+.form-inline {
+    padding-left: 30px;
+}
+
 .list-group-item {
     margin: 1px;
 }
@@ -28,10 +32,18 @@ padding-top: 15px;
 
 .past-searches{
     list-style: none;
-    background-color: white;
+    /* background-color: white; */
     color: black;
     padding: 5px;
     font-size: 20px;
+    text-align: center;
+    /* border: 1px solid violet; */
+}
+
+.past {
+    color: teal;
+    border: 1px solid violet;
+    margin: 5px;
 }
 
 .search-list {
@@ -42,9 +54,7 @@ padding-top: 15px;
 }
 
 .weather-main {
-    /* background-color: white */
-    /* margin: 10px; */
-    /* height: 550px; */
+color: black
 }
 
 .weather-city {
