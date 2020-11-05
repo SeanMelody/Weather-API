@@ -39,6 +39,10 @@ padding-top: 15px;
     text-align: center;
     /* border: 1px solid violet; */
 }
+.search-test {
+    background-color: #ececec;
+    height: 50px;
+}
 
 .past {
     color: teal;

@@ -214,7 +214,16 @@ function citySearch() {
                         search1.innerHTML = city;
                         document.querySelector(".past-searches").appendChild(search1);
 
-                        console.log(search1)
+                        search1.onclick = function () {
+                            // alert(search1)
+                            // alert(search1.textContent)
+                            var newCity = search1.textContent
+                            alert(newCity)
+                            // return (citySearch)
+                        };
+
+
+                        console.log(city)
 
 
                     })
@@ -228,22 +237,27 @@ function citySearch() {
                 var search1 = document.createElement("li");
                 search1.classList.add("past")
                 search1.classList.add("btn-light")
-                // search1.nodeType.add("button")
-                // search1.style.width = "200px";
-                // search1.style.height = "50px";
-                // search1.style.background = "white";
-                // search1.style.color = "black";
-                // search1.style.border = "1px solid #333333";
                 search1.innerHTML = `"${city}" is not a valid city`;
                 document.querySelector(".past-searches").appendChild(search1);
 
 
             }
 
+            // search1.onclick = function () {
+            //     alert(search1)
+            //     alert(search1.textContent)
+            //     alert(city)
+            //     // citySearch(search1.textContent)
+            // };
+
         })
 
 
-
+    // search1.onclick = function () {
+    //     // alert(search1)
+    //     alert(search1.textContent)
+    //     // citySearch(search1.textContent)
+    // };
 
 
 
