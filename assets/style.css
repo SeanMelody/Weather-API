@@ -1,66 +1,67 @@
+/* Whole Body Styling */
 body {
     background-color: #81d4fa;
 }
 
+/* Title Styling */
 h1 {
     font-size: 30px;
     font-weight: bold;
     color: white;
 }
 
+/* Left side of page styling for search/buttons and past searches */
 aside {
 background-color: #ececec;
 padding-top: 15px;
-/* margin: 10px; */
-/* padding-right: 15px; */
-/* padding-right: 20px; */
 }
 
+.search-list {
+    background-color: white;
+}
+
+/* Styling for the form for the list that populates from past searches */
 .form-inline {
     padding-left: 30px;
 }
 
+/* Additional Styling for list that populates from past searches */
 .list-group-item {
     margin: 1px;
 }
 
-.weather-card {
-    /* margin: 100px; */
-
-    text-align: center;
-}
-
+/* Styling for past search buttons */
 .past-searches{
     list-style: none;
-    /* background-color: white; */
     color: black;
     padding: 5px;
     font-size: 20px;
     text-align: center;
-    /* border: 1px solid violet; */
-}
-.search-test {
-    background-color: #ececec;
-    height: 50px;
 }
 
+/* Past Searches Styling (Populated in JavaScript) */
 .past {
     color: teal;
     border: 1px solid violet;
     margin: 5px;
 }
 
-.search-list {
-    background-color: white;
-    /* height: 50;
-    width; */
-
+.search-test {
+    background-color: #ececec;
+    height: 50px;
 }
 
+/* Current Weather Main Styling */
+.weather-card {
+    text-align: center;
+}
+
+/* Text color for main part of Current Weather */
 .weather-main {
 color: black
 }
 
+/* Current City Weather Box Styling */
 .weather-city {
     height: 400px;
     /* margin: 20px; */
@@ -68,42 +69,33 @@ color: black
     padding-left: 20px;
 }
 
+/* Styling the main city Name */
 #main-city-name {
     font-size: 30px;
 }
 
+/* Styling the current conditions */
 #main-current-conditions {
 font-size: 30px;
 }
 
+/* Five Day Forecast Styling */
 .five-day {
-    /* background-color: brown; */
-    /* text-align: center; */
     font-size: 16px;
     display: block;
     margin: 10px;
 }
 
+/* List of 5 day Forecast Styling */
 .five-day li {
     list-style-type: none;
     padding-bottom: 5px;
 }
 
-/* .days{
-margin: 10px;
-
-} */
-
-/* .days::after:last-child {
-    margin: 0;
-} */
-
+/* Each Individual Day Styling in 5 day Forecast */
 .day {
     background-color: blue;
-    /* text-align: center; */
     margin: 5px;
     color: white;
     line-height: 200%;
-    /* height: 150px;
-    width: 75px; */
 }

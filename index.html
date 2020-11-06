@@ -20,131 +20,139 @@
 <body>
     <header>
         <div>
+            <!-- Header Bar -->
             <nav class="navbar bg-dark">
+                <!-- Centered Text using mx-auto -->
                 <h1 class="mx-auto"> Weather API </h1>
             </nav>
         </div>
     </header>
-    <!-- <h1>Weather API</h1> -->
-    <div class="row">
+    <!-- Content holds everything, all one Row -->
+    <content class="row">
+        <!-- Aside is for the search function, and past cities searched displayed 1/3 of Page-->
         <aside class="col-md-3">
-
+            <!-- Search bar and button -->
             <div class="form-inline">
+                <!-- Title of Aside -->
                 <h4>Search for a city:</h4>
+                <!-- Input form for city search -->
                 <input class="form-control form-inline city" placeholder="Enter a city" id="place-city"
                     aria-label="Search"></input>
+                <!-- Button to click to run main function, and search! using font awesome for the button symbol -->
                 <button class="btn btn-outline-info my-2 my-sm-0" id="search-city"> <i
                         class="fas fa-search"></i></button>
             </div>
 
-            <!-- </div> -->
+
+            <!-- UL for past searches to auto populate into, all done via JavaScript -->
             <ul class="list-group list-group-flush mx-auto past-searches">
-                <!-- <li class="mx-auto button btn-sm past-searches"></li> -->
-                <!-- <li><button class="list-group-item" id="search1" onclick="search1()"></button></li> -->
-                <!-- <li><button class="list-group-item" id="search2" onclick="search2()"></button></li>
-                <li><button class="list-group-item" id="search3" onclick="search3()"></button></li>
-                <li><button class="list-group-item" id="search4" onclick="search4()"></button></li> -->
 
-
-                <!-- <button class="search-test"></button>
-                <button class="search-test"></button>
-                <button class="search-test"></button> -->
-
-                <!-- <br> -->
             </ul>
-            <!-- </div> -->
+
         </aside>
+        <!-- End of left side of page -->
 
 
-        <!-- <content> -->
+        <!-- Main section of page, to display the weather, and 5 day Forecast 2/3 of Page -->
         <div class="col-md-9 weather-main">
-            <div>
-                <div class="weather-city border border-dark rounded">
-                    <div id="main-city-name"></div>
-                    <!-- Weather Icon JQuery -->
-                    <div id="icon"><img id="wicon" src=""></div>
-                    <p id="main-current-conditions"></p>
-                    <p id="main-temp"></p>
-                    <p id="main-humidity"></p>
-                    <p id="main-wind-speed"></p>
-                    <p id="main-uv-index"></p>
-                    <p id="main-icon"></p>
-                    <p id="main-icon-test"></p>
-                    <p id="main-air-quality"></p>
-                    <!-- <img id="main-image"></img> -->
 
+            <!-- Current weather displayed when city is searched here -->
+            <div class="weather-city border border-dark rounded">
+                <!--Current City Name -->
+                <div id="main-city-name"></div>
+                <!-- Current Weather Icon Using JQuery -->
+                <div id="icon"><img id="wicon" src=""></div>
+                <!-- Current Temperature -->
+                <p id="main-temp"></p>
+                <!-- CUrrent Humidity -->
+                <p id="main-humidity"></p>
+                <!-- Current Wind Speed -->
+                <p id="main-wind-speed"></p>
+                <!-- Current UV Index -->
+                <p id="main-uv-index"></p>
+
+            </div>
+            <!-- End of Current conditions -->
+
+            <!-- Start of 5 day Forecast / A full row under the Current Conditions -->
+            <div class="row col-md-12 five-day">
+                <!-- Title for Five Day Forecast -->
+                <h4>Five Day Forecast:</h4>
+
+                <!-- Section for the 5 days of Forecast to display -->
+                <div class="row col-md-12 mx-auto">
+
+                    <!-- Day One Conditions Display -->
+                    <ul class="col-md-2 day day-one rounded">
+                        <!-- Day One Date -->
+                        <li id="day-one-date"></li>
+                        <!-- Day One Icon -->
+                        <li id="day-one-icon"><img id="icon-one" src=""></li>
+                        <!-- Day One Temperature -->
+                        <li id="day-one-temp"></li>
+                        <!-- Day One Humidity -->
+                        <li id="day-one-humidity"></li>
+                    </ul>
+                    <!-- End of Day One Conditions -->
+
+                    <!-- Day Two Conditions Display -->
+                    <ul class="col-md-2 day day-two rounded">
+                        <!-- Day Two Date -->
+                        <li id="day-two-date"></li>
+                        <!-- Day Two Icon -->
+                        <li id="day-two-icon"><img id="icon-two" src=""></li>
+                        <!-- Day Two Temperature -->
+                        <li id="day-two-temp"></li>
+                        <!-- Day Two Humidity -->
+                        <li id="day-two-humidity"></li>
+                    </ul>
+                    <!-- End of Day Two Conditions -->
+
+                    <!-- Day Three Conditions Display -->
+                    <ul class="col-md-2 day day-three rounded">
+                        <!-- Day Three Date -->
+                        <li id="day-three-date"></li>
+                        <!-- Day Three Icon -->
+                        <li id="day-three-icon"><img id="icon-three" src=""></li>
+                        <!-- Day Three Temperature -->
+                        <li id="day-three-temp"></li>
+                        <!-- Day Three Humidity -->
+                        <li id="day-three-humidity"></li>
+                    </ul>
+                    <!-- End of Day Three Conditions -->
+
+                    <!-- Day Four Conditions Display -->
+                    <ul class="col-md-2 day day-four rounded">
+                        <!-- Day Four Date -->
+                        <li id="day-four-date"></li>
+                        <!-- Day Four Icon -->
+                        <li id="day-four-icon"><img id="icon-four" src=""></li>
+                        <!-- Day Four Temperature -->
+                        <li id="day-four-temp"></li>
+                        <!-- Day Four Humidity -->
+                        <li id="day-four-humidity"></li>
+                    </ul>
+                    <!-- End of Day Four Conditions -->
+
+                    <!-- Day Five Conditions Display -->
+                    <ul class="col-md-2 day day-five rounded">
+                        <!-- Day Five Date -->
+                        <li id="day-five-date"></li>
+                        <!-- Day Five Icon -->
+                        <li id="day-five-icon"><img id="icon-five" src=""></li>
+                        <!-- Day Five Temperature -->
+                        <li id="day-five-temp"></li>
+                        <!-- Day Five Humidity -->
+                        <li id="day-five-humidity"></li>
+                    </ul>
+                    <!-- End of Day Five Conditions -->
                 </div>
-
-
-                <div class="row col-md-12 five-day">
-                    <h4>Five Day Forecast:</h4>
-                    <div class="row col-md-12 mx-auto">
-
-                        <ul class="col-md-2 day day-one rounded">
-                            <li id="day-one-date"></li>
-                            <li id="day-one-icon"><img id="icon-one" src=""></li>
-                            <li id="day-one-temp"></li>
-                            <li id="day-one-humidity"></li>
-                        </ul>
-
-                        <ul class="col-md-2 day day-two rounded">
-                            <li id="day-two-date"></li>
-                            <li id="day-two-icon"><img id="icon-two" src=""></li>
-                            </li>
-                            <li id="day-two-temp"></li>
-                            <li id="day-two-humidity"></li>
-                        </ul>
-
-
-                        <ul class="col-md-2 day day-three rounded">
-                            <li id="day-three-date"></li>
-                            <li id="day-three-icon"><img id="icon-three" src=""></li>
-                            </li>
-                            <li id="day-three-temp"></li>
-                            <li id="day-three-humidity"></li>
-                        </ul>
-
-
-                        <ul class="col-md-2 day day-four rounded">
-                            <li id="day-four-date"></li>
-                            <li id="day-four-icon"><img id="icon-four" src=""></li>
-                            </li>
-                            <li id="day-four-temp"></li>
-                            <li id="day-four-humidity"></li>
-                        </ul>
-
-
-                        <ul class="col-md-2 day day-five rounded">
-                            <li id="day-five-date"></li>
-                            <li id="day-five-icon"><img id="icon-five" src=""></li>
-                            </li>
-                            <li id="day-five-temp"></li>
-                            <li id="day-five-humidity"></li>
-                        </ul>
-
-                    </div>
-                </div>
-
             </div>
         </div>
 
-    </div>
-    <!-- </content> -->
+    </content>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- End of Weather -->
 
 
     <!-- jQuery Script Tags -->
@@ -152,6 +160,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- Script for Moments -->
     <script src="./assets/moment/moment.min.js"></script>
+    <!-- My JavaScript Tag -->
     <script src="assets/script.js"></script>
 </body>
 
