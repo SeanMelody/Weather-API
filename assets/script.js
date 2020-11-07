@@ -11,7 +11,7 @@ function citySearch(input) {
     // save city searched to local storage
     localStorage.setItem('city', input)
     // API search for current weather, with input being taken from the search box
-    var requestUrl = `http://api.openweathermap.org/data/2.5/weather?q=${input}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
+    var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=imperial&cnt=6&appid=fd7013d34fa65ca951cba9b9f0dde107`;
     // Fetch Request for the current weather
     fetch(requestUrl, {
 
@@ -35,7 +35,7 @@ function citySearch(input) {
 
                 // Using jQuery to add the icon
                 var iconCode = data.weather[0].icon;
-                var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png"
+                var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png"
                 $('#weatherIcon').attr('src', iconUrl);
 
                 // variable for the current temperature ID
@@ -127,7 +127,7 @@ function citySearch(input) {
                         dayOneDate.textContent = (moment().add(1, 'days').format('MM[/]D[/]yyyy'))
                         // Weather Icon using jQuery
                         var iconDayOne = dataFiveDay.daily[1].weather[0].icon;
-                        var iconDayOneUrl = "http://openweathermap.org/img/w/" + iconDayOne + ".png"
+                        var iconDayOneUrl = "https://openweathermap.org/img/w/" + iconDayOne + ".png"
                         $('#icon-one').attr('src', iconDayOneUrl);
                         // print the temperature to day 1
                         dayOneTemp.textContent = `Temp: ${dataFiveDay.daily[1].temp.day}  \u00B0F`
@@ -148,7 +148,7 @@ function citySearch(input) {
                         dayTwoDate.textContent = (moment().add(2, 'days').format('MM[/]D[/]yyyy'))
                         // Weather Icon using jQuery
                         var iconDayTwo = dataFiveDay.daily[2].weather[0].icon;
-                        var iconDayTwoUrl = "http://openweathermap.org/img/w/" + iconDayTwo + ".png"
+                        var iconDayTwoUrl = "https://openweathermap.org/img/w/" + iconDayTwo + ".png"
                         $('#icon-two').attr('src', iconDayTwoUrl);
                         // print the temperature to day 2
                         dayTwoTemp.textContent = `Temp: ${dataFiveDay.daily[2].temp.day}  \u00B0F`
@@ -169,7 +169,7 @@ function citySearch(input) {
                         dayThreeDate.textContent = (moment().add(3, 'days').format('MM[/]D[/]yyyy'))
                         // Weather Icon using jQuery
                         var iconDayThree = dataFiveDay.daily[3].weather[0].icon;
-                        var iconDayThreeUrl = "http://openweathermap.org/img/w/" + iconDayThree + ".png"
+                        var iconDayThreeUrl = "https://openweathermap.org/img/w/" + iconDayThree + ".png"
                         $('#icon-three').attr('src', iconDayThreeUrl);
                         // print the temperature to day 3
                         dayThreeTemp.textContent = `Temp: ${dataFiveDay.daily[3].temp.day}  \u00B0F`
@@ -189,7 +189,7 @@ function citySearch(input) {
                         dayFourDate.textContent = (moment().add(4, 'days').format('MM[/]D[/]yyyy'))
                         // Weather Icon using jQuery
                         var iconDayFour = dataFiveDay.daily[3].weather[0].icon;
-                        var iconDayFourUrl = "http://openweathermap.org/img/w/" + iconDayFour + ".png"
+                        var iconDayFourUrl = "https://openweathermap.org/img/w/" + iconDayFour + ".png"
                         $('#icon-four').attr('src', iconDayFourUrl);
 
                         // print the temperature to day 4
@@ -210,7 +210,7 @@ function citySearch(input) {
                         dayFiveDate.textContent = (moment().add(5, 'days').format('MM[/]D[/]yyyy'))
                         // Weather Icon using jQuery
                         var iconDayFive = dataFiveDay.daily[4].weather[0].icon;
-                        var iconDayFiveUrl = "http://openweathermap.org/img/w/" + iconDayFive + ".png"
+                        var iconDayFiveUrl = "https://openweathermap.org/img/w/" + iconDayFive + ".png"
                         $('#icon-five').attr('src', iconDayFiveUrl);
 
                         // print the temperature to day 5
