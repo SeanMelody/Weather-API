@@ -93,12 +93,12 @@ function citySearch(input) {
                             mainUVIndex.style.background = "green"
                         }
                         // yellow for a medium UV index and change the color of the text so it is readable
-                        if (uvColor >= 3 && uvColor < 5) {
+                        if (uvColor >= 3 && uvColor < 6) {
                             mainUVIndex.style.background = "yellow"
                             mainUVIndex.style.color = "black"
                         }
                         // orange for a high medium UV Index
-                        if (uvColor >= 6 && uvColor < 7) {
+                        if (uvColor >= 6 && uvColor < 8) {
                             mainUVIndex.style.background = "orange"
                         }
                         // red for if a bad UV Index
@@ -107,7 +107,7 @@ function citySearch(input) {
                         }
                         // violet for a very bad UV Index
                         if (uvColor >= 10) {
-                            mainUVIndex.style.background = "violet"
+                            mainUVIndex.style.background = "purple"
                         }
 
 

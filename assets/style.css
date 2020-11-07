@@ -16,13 +16,13 @@ background-color: #ececec;
 padding-top: 15px;
 }
 
-.search-list {
-    background-color: white;
+.search-icon {
+    margin: 5px;
 }
 
 /* Styling for the form for the list that populates from past searches */
 .form-inline {
-    padding-left: 30px;
+    padding-left: 10px;
 }
 
 /* Additional Styling for list that populates from past searches */
@@ -30,10 +30,9 @@ padding-top: 15px;
     margin: 1px;
 }
 
-/* Styling for past search buttons */
+/* Styling for past search section */
 .past-searches{
     list-style: none;
-    color: black;
     padding: 5px;
     font-size: 20px;
     text-align: center;
@@ -44,11 +43,6 @@ padding-top: 15px;
     color: teal;
     border: 1px solid violet;
     margin: 5px;
-}
-
-.search-test {
-    background-color: #ececec;
-    height: 50px;
 }
 
 /* Current Weather Main Styling */
@@ -67,6 +61,7 @@ color: black
     /* margin: 20px; */
     margin-top: 40px;
     padding-left: 20px;
+    font-weight: bold;
 }
 
 /* Styling the main city Name */
@@ -99,3 +94,15 @@ font-size: 30px;
     color: white;
     line-height: 200%;
 }
+
+/* Footer Text Styling */
+h6 {
+    font-size: 14px;
+}
+  
+  /* Footer Styling */
+footer {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5)
+}
+
