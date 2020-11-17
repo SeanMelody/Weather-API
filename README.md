@@ -1,3 +1,4 @@
+<img src="https://img.shields.io/badge/LICENSE-mit-green"/>
 # Weather-API
 Weather App using an API
 
