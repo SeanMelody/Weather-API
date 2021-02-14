@@ -263,3 +263,25 @@ function citySearch(input) {
     // return City Search Function
     return (citySearch)
 }
+
+
+                // // console log the data object
+                // console.log(data)
+                // console.log(data["Global Quote"]["01. symbol"])
+                // console.log(data["Global Quote"]["05. price"])
+
+                // let stockSymbol = data["Global Quote"]["01. symbol"]
+                // let stockPrice = data["Global Quote"]["05. price"]
+
+                // // Display the search to the page
+                // company.innerHTML = (`Stock Symbol: ${stockSymbol}`)
+                // price.textContent = (`Price: $${stockPrice}`)
+
+                // // Set the past searches to a button on the left side of the page
+                // let search1 = document.createElement("ul");
+                // search1.classList.add("past-searches")
+                // // let searchTitle = document.createElement("th")
+
+                // search1.innerHTML = stockSymbol;
+                // // append
+                // document.querySelector(".past-searches").appendChild(search1)
